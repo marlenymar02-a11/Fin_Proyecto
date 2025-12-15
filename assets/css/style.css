@@ -1,0 +1,179 @@
+body {
+    background-image: url('../imagenes/fondo.jpg');
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* HEADER */
+.header {
+    background: radial-gradient(circle at center, #2b2b2b 0%, #000000 70%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    position: relative;
+}
+.logo-img { position: absolute; left: 20px; width: 40px; }
+.logo { font-size: 26px; font-family: cursive; cursor: pointer; }
+.header-actions { position: absolute; right: 20px; }
+.header-actions button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+.cart-btn span {
+    background: red;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    color: white;
+}
+
+/* PRODUCTOS */
+.productos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.producto {
+    background: white;
+    width: 220px;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+.producto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.producto button {
+    background: #ff9800;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.producto button:hover { background: #e68a00; }
+
+/* CHECKOUT */
+.checkout {
+    display: none;
+    background: #111;
+    color: white;
+    padding: 40px;
+    min-height: 100vh;
+}
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.step { opacity: .4; text-align: center; }
+.step.active { opacity: 1; color: #a88bff; }
+.content { display: none; background: #1c1c1c; padding: 20px; border-radius: 10px; }
+.content.active { display: block; }
+.checkout input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.checkout-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.checkout-buttons button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.checkout-buttons button:hover { background: #e68a00; }
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 1000;
+}
+.modal-content {
+    background: white;
+    width: 320px;
+    margin: 15% auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: #333;
+    position: relative;
+}
+.modal-content input, .modal-content select {
+    padding: 8px;
+    margin: 8px 0;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.modal-content button {
+    background: #ff9800;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.modal-content button:hover { background: #e68a00; }
+
+/* CERRAR MODAL */
+.modal-content .cerrar {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #0f0f0f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 50px;
+}
+footer a {
+    color: #ff9800;
+    text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }

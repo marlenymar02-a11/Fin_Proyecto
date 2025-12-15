@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panadería San Juan</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img src="assets/imagenes/logo.png" class="logo-img" alt="Logo Panadería San Juan">
+  <div class="logo" onclick="volverInicio()">Panadería San Juan</div>
+  <div class="header-actions">
+    <button class="cart-btn" onclick="abrirCheckout()"> 🛒 <span id="cartCount">0</span> </button>
+  </div>
+</header>
+
+<!-- TIENDA -->
+<main id="tienda">
+  <section class="productos">
+    <div class="producto">
+      <img src="assets/imagenes/pan_blanco.jpg" alt="Pan Blanco">
+      <h3>Pan Blanco</h3>
+      <h3>4 por s/.1</h3>
+      <p>Pan fresco del día</p>
+      <button onclick="abrirModal('Pan Blanco')">Comprar</button>
+    </div>
+    <div class="producto">
+      <img src="assets/imagenes/pan_trigo.jpg" alt="Pan Trigo">
+      <h3>Pan Trigo</h3>
+      <h3>5 por s/.1</h3>
+      <p>Pan de trigo fresco del día</p>
+      <button onclick="abrirModal('Pan Trigo')">Comprar</button>
+    </div>
+  </section>
+</main>
+
+<!-- CHECKOUT -->
+<section id="checkout" class="checkout">
+  <div class="steps">
+    <div class="step active">🛒<br>Carrito</div>
+    <div class="step">🚚<br>Envío</div>
+    <div class="step">💳<br>Pago</div>
+    <div class="step">✅<br>Finalizado</div>
+  </div>
+
+  <div class="step-content">
+    <!-- CARRITO -->
+    <div class="content active">
+      <h2>Mi carrito</h2>
+      <label>Nombre del comprador:</label>
+      <input type="text" id="nombreComprador" placeholder="Ingrese su nombre">
+      <ul id="checkoutCarrito"></ul>
+      <p><strong>Total: S/ <span id="totalPago">0</span></strong></p>
+    </div>
+
+    <!-- ENVÍO -->
+    <div class="content">
+      <h2>Tipo de envío</h2>
+      <select id="tipoEnvio" onchange="toggleDireccion()">
+        <option value="tienda">Recojo en tienda</option>
+        <option value="delivery">Delivery</option>
+      </select>
+      <div id="direccionBox" style="display:none">
+        <input type="text" placeholder="Dirección">
+        <input type="text" placeholder="Referencia">
+      </div>
+    </div>
+
+    <!-- PAGO -->
+    <div class="content">
+      <h2>Método de pago</h2>
+      <label><input type="radio" name="pago" onclick="pagar('Yape')"> Yape</label><br>
+      <label><input type="radio" name="pago" onclick="pagar('Plin')"> Plin</label><br>
+      <label><input type="radio" name="pago" onclick="pagar('Contraentrega')"> Contraentrega</label>
+    </div>
+
+    <!-- FINAL -->
+    <div class="content">
+      <h2>Pedido completado</h2>
+      <p>Procesando pago...</p>
+    </div>
+  </div>
+
+  <div class="checkout-buttons">
+    <button onclick="volverTienda()">Cancelar</button>
+    <button onclick="siguientePaso()">Siguiente</button>
+  </div>
+</section>
+
+<!-- MODAL MONTO -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModal()" style="float:right;cursor:pointer;">✖</span>
+    <h3 id="productoModal"></h3>
+    <p>Ingrese monto mínimo S/5</p>
+    <input type="number" id="monto" value="5" min="5">
+    <button onclick="agregarCarrito()">Agregar al carrito</button>
+  </div>
+</div>
+
+<!-- MODAL PAGO -->
+<div id="pagoModal" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="pagoModal.style.display='none'" style="float:right;cursor:pointer;">✖</span>
+    <h3 id="tituloPago"></h3>
+    <p>Número: <strong>999 888 777</strong></p>
+    <button onclick="confirmarPago()">He realizado el pago</button>
+  </div>
+</div>
+
+<!-- MODAL GRACIAS -->
+<div id="graciasModal" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="graciasModal.style.display='none'" style="float:right;cursor:pointer;">✖</span>
+    <h2>🎉 Gracias por su compra</h2>
+    <p>Su pedido fue realizado con éxito 🥖</p>
+    <button onclick="volverInicio()">Aceptar</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  📞 WhatsApp: <a href="https://wa.me/51999888777" style="color:white;">999 888 777</a><br>
+  📍 Panadería San Juan - Todos los derechos reservados
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
